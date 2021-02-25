@@ -24,7 +24,7 @@ _Desarrollo de una API de tipo market en la cual se podrá realizar la compra de
 * ¿Qué información se necesita?
   * *Usuario Administrador*
     * Usuario, contraseña, nombre y fotografía
-  * Usuario
+  * *Usuario*
     * Usuario, nombre, contraseña, fotografía, correo electrónico, teléfono, método de pago
 * ¿Cuales son las principales entidades?
   * Usuarios
