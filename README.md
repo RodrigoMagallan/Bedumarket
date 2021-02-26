@@ -44,4 +44,4 @@ _Desarrollo de una API de tipo market en la cual se podrá realizar la compra de
 
 
 ---
-⌨️ con ❤️ por [RodrigoMagallan] 😊
+⌨️ con ❤️ por [RodrigoMagallan y Janz Fernando] 😊
