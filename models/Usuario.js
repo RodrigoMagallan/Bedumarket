@@ -11,16 +11,6 @@ class Usuario{
 		this.forma_de_pago = forma_de_pago; // la forma de pago que utilizará el usuario al hacer transacciones
 	}
 	
-	guardarUsuario(){
-		// función para guardar un nuevo registro en la base de datos.
-	}
-
-    modificarUsuario(){
-        //funcion para modificar algunos datos del usuario
-    }
-
-    suspenderUsuario(){
-        //funcion para suspender una cuenta de usuario ya que no se podrá hacer uso de eliminar
-    }
-	
 }
+
+module.exports = Usuario

@@ -9,8 +9,6 @@ class Compra{
 		this.monto = monto; //monto de la compra
 	}
 	
-	guardarCompra(){
-		// función para guardar un nuevo registro en la base de datos.
-	}
-	
 }
+
+module.exports = Compra;

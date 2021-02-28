@@ -10,19 +10,6 @@ class Curso{
 		this.descripcion = descripcion; // descripción ed lo que se hará en dicho curso
 	}
 	
-	guardarCurso(){
-		// función para guardar un nuevo registro en la base de datos.
-	}
-    
-    modificarCurso(){
-        //función para modificar algún curso en la base de datos.
-    }
-
-    eliminarCurso(){
-        //función para eliminar un curso de la base de datos.
-    }
-
-    suspenderCurso(){
-        //función para suspender un curso en la base de datos
-    }
 }
+
+module.exports = Curso;
