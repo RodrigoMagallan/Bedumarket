@@ -13,9 +13,9 @@ function guardarCurso(req, res) {
 }
 
 function obtenerCurso(req, res) {
-  // Simulando dos curso y respondiendolos
+  // Simulando dos cursos y respondiendolos
   var curso1 = new Curso(1, 'Programando en Java', 'www.youtube.com', '$1200', 'Curso intensivo sobre Java')
-  var  = new Curso(1, 'Programando en JavaScript', 'www.youtube.com', '$1300', 'Curso intensivo sobre JavaScript')
+  var curso2 = new Curso(2, 'Programando en JavaScript', 'www.youtube.com', '$1300', 'Curso intensivo sobre JavaScript')
   res.send([curso1, curso2])
 }
 

@@ -3,7 +3,7 @@ const router = require('express').Router();
 const {
     guardarCompra,
     obtenerCompra
-} = require('../models/Compra');
+} = require('../controllers/compras')
 
 
 router.get('/', obtenerCompra)
