@@ -40,8 +40,13 @@ _Desarrollo de una API de tipo market en la cual se podrá realizar la compra de
   * Compras: va a permitir el control de las compras y el acceso a los cursos pagados.
 
 
+## Diagrama de Base de datos
+
+![imagen](https://user-images.githubusercontent.com/56411929/109845751-15638a80-7c13-11eb-88f9-75d246c40063.png)
+
+![imagen](https://user-images.githubusercontent.com/56411929/109845793-201e1f80-7c13-11eb-891a-50c7d3acaf99.png)
 
 
 
 ---
-⌨️ con ❤️ por [RodrigoMagallan y Janz Fernando] 😊
+⌨️ con ❤️ por [Rodrigo Magallan y Janz Fernando] 😊
