@@ -7,16 +7,22 @@
 const Compra = require('../models/Compra')
 
 function guardarCompra(req, res) {
-  // Instanciaremos una nueva compra utilizando la clase compra
-  var compra = new Compra(req.body)
-  res.status(201).send(curso)
+  const prch = Compra.build(req.body)
+// Guarda esta instancia, es hasta este momento que se modifica la base de datos.
+prch.save().then(purchase => {
+  return res.status(201).json(purchase.toAuthJSON())
+}).catch(next);
 }
 
 function obtenerCompra(req, res) {
-  // Simulando una compra y respondiendolos
-  var compra1 = new Compra(1, 'Programando en Java', '20/02/2020', '$1200')
-  var compra2 = new Compra(2, 'Programando en JavaScript', '20/03/2020', '$1200')
-  res.send([compra1, compra2])
+ // Hace una consulta en la base de datos.
+ Purchase.findAll().then(purchase => {
+  return res.json(purchase)
+}).catch(error => {
+  return res.sendStatus(401)
+})
+
+
 }
 
 // exportamos las funciones definidas

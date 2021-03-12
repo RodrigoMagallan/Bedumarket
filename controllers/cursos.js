@@ -7,33 +7,48 @@
 const Curso = require('../models/Curso')
 
 function guardarCurso(req, res) {
-  // Instanciaremos un nuevo usuario utilizando la clase curso
-  var curso = new Curso(req.body)
-  res.status(201).send(curso)
+  //Instancia del modelo Curso
+  const curso = Curso.build(req.body)
+  curs.save().then(curse => {
+    return res.status(201).json(curse.toAuthJSON())
+  }).catch(next);
 }
 
 function obtenerCurso(req, res) {
-  // Simulando dos cursos y respondiendolos
-  var curso1 = new Curso(1, 'Programando en Java', 'www.youtube.com', '$1200', 'Curso intensivo sobre Java')
-  var curso2 = new Curso(2, 'Programando en JavaScript', 'www.youtube.com', '$1300', 'Curso intensivo sobre JavaScript')
-  res.send([curso1, curso2])
+  //Consulta a la base de datos
+Curso.findAll().then(curse => {
+  return res.json(curse)
+}).catch(error => {
+  return res.sendStatus(401)
+})
 }
 
 function modificarCurso(req, res) {
-  // simulando un curso previamente existente que el cliente modifica
-  var curso1 = new Curso(1, 'Programando en Java', 'www.youtube.com', '$1200', 'Curso intensivo sobre Java')
-  var modificaciones = req.body
-  curso1 = { ...curso1, ...modificaciones }
-  res.send(curso1)
-}
-function eliminarCurso(req, res) {
-  // se simula una eliminación de un curso, regresando un 200
-  res.status(200).send(`Curso ${req.params.id} eliminado`);
+const curso = Curso.create({
+  id : req.params.id,
+  ...req.body
+})
+//Guardado en la BD
+
+curs.save().then(user => {
+  return res.status(201).json(curso.toAuthJSON())
+}).catch(next);
 }
 
-function suspenderCurso(req, res) {
-  // se simula una suspención de curso, regresando un 200
-  res.status(200).send(`Curso ${req.params.id} suspendido`);
+function eliminarCurso(req, res) {
+// Usamos findByPK para buscar al usuario por su id
+const curs = Curso.findByPk(req.Curso.id);
+if (curs === null){
+  // si no existe lanzamos un 400 
+  return res.sendStatus(401)
+} else {
+  // Si existe, lo eliminamos
+  curs.destroy().then(curs => {
+    return res.status(200)
+  }).catch(err => {
+    return res.sendStatus(500)
+  })
+}
 }
 
 
@@ -42,6 +57,5 @@ module.exports = {
   guardarCurso,
   obtenerCurso,
   modificarCurso,
-  eliminarCurso,
-  suspenderCurso
+  eliminarCurso
 }

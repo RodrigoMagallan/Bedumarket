@@ -7,28 +7,49 @@
 const Usuario = require('../models/Usuario')
 
 function guardarUsuario(req, res) {
-  // Instanciaremos un nuevo usuario utilizando la clase usuario
-  var usuario = new Usuario(req.body)
-  res.status(201).send(usuario)
+// construye una instancia del modelo Usuario con los argumentos que recibe en la petición
+const usr = Usuario.build(req.body)
+// Guarda esta instancia, es hasta este momento que se modifica la base de datos.
+usr.save().then(user => {
+  return res.status(201).json(user.toAuthJSON())
+}).catch(next);
 }
 
 function obtenerUsuarios(req, res) {
-  // Simulando dos usuarios y respondiendolos
-  var usuario1 = new Usuario(1, 'Juan', 'Vega', 'juan@vega.com')
-  var usuario2 = new Usuario(2, 'Monserrat', 'Vega', 'mon@vega.com')
-  res.send([usuario1, usuario2])
+ // Hace una consulta en la base de datos.
+ User.findAll().then(users => {
+  return res.json(users)
+}).catch(error => {
+  return res.sendStatus(401)
+})
 }
 
 function modificarUsuario(req, res) {
-  // simulando un usuario previamente existente que el cliente modifica
-  var usuario1 = new Usuario(req.params.id, 'Juan', 'Vega', 'juan@vega.com')
-  var modificaciones = req.body
-  usuario1 = { ...usuario1, ...modificaciones }
-  res.send(usuario1)
+ // Se crea un usuario con el id del que se quiere modificar y los cambios descritos en el body
+ const usr = User.create({
+  id : req.params.id,
+  ...req.body
+})
+// Se guarda en la DB
+usr.save().then(user => {
+  return res.status(201).json(user.toAuthJSON())
+}).catch(next);
 }
 function suspenderUsuario(req, res) {
   // se simula una suspención de usuario, regresando un 200
-  res.status(200).send(`Usuario ${req.params.id} suspendido`);
+    // Usamos findByPK para buscar al usuario por su id
+    const usr = User.findByPk(req.usuario.id);
+    if (usr === null){
+      // si no existe lanzamos un 400 
+      return res.sendStatus(401)
+    } else {
+      // Si existe, lo eliminamos
+      usr.destroy().then(usr => {
+        return res.status(200)
+      }).catch(err => {
+        return res.sendStatus(500)
+      })
+    }
 }
 
 // exportamos las funciones definidas
