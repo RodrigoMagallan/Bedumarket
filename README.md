@@ -46,7 +46,13 @@ _Desarrollo de una API de tipo market en la cual se podrá realizar la compra de
 
 ![imagen](https://user-images.githubusercontent.com/56411929/109845793-201e1f80-7c13-11eb-891a-50c7d3acaf99.png)
 
+## ¿Como instalar esta API?
 
+Para poder instalar esta API es necesario que ejecutes `npm install` ya sea en windows (VSCODE :blue_heart:), Linux :purple_heart: o Mac :apple:
+
+## Notas
+
+Se realizó el deploy de la API por medio de www.heroku.com y para poder hacer la conexión remota a nuestra Base de datos de MySQL se uso Clever Cloud. 
 
 ---
 ⌨️ con ❤️ por [Rodrigo Magallan y Janz Fernando] 😊
