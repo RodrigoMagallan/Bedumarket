@@ -17,16 +17,16 @@ usr.save().then(user => {
 
 function obtenerUsuarios(req, res) {
  // Hace una consulta en la base de datos.
- User.findAll().then(users => {
+ Usuario.findAll().then(users => {
   return res.json(users)
 }).catch(error => {
   return res.sendStatus(401)
 })
 }
 
-function modificarUsuario(req, res) {
+function modificarUsuario(req, res, next) {
  // Se crea un usuario con el id del que se quiere modificar y los cambios descritos en el body
- const usr = User.create({
+ const usr = Usuario.create({
   id : req.params.id,
   ...req.body
 })
@@ -38,7 +38,7 @@ usr.save().then(user => {
 function suspenderUsuario(req, res) {
   // se simula una suspención de usuario, regresando un 200
     // Usamos findByPK para buscar al usuario por su id
-    const usr = User.findByPk(req.usuario.id);
+    const usr = Usuario.findByPk(req.usuario.id);
     if (usr === null){
       // si no existe lanzamos un 400 
       return res.sendStatus(401)

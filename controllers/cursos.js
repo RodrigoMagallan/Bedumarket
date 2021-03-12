@@ -6,9 +6,9 @@
 // importamos el modelo de cursos
 const Curso = require('../models/Curso')
 
-function guardarCurso(req, res) {
+function guardarCurso(req, res, next) {
   //Instancia del modelo Curso
-  const curso = Curso.build(req.body)
+  const curs = Curso.build(req.body)
   curs.save().then(curse => {
     return res.status(201).json(curse.toAuthJSON())
   }).catch(next);
@@ -23,7 +23,7 @@ Curso.findAll().then(curse => {
 })
 }
 
-function modificarCurso(req, res) {
+function modificarCurso(req, res, next) {
 const curso = Curso.create({
   id : req.params.id,
   ...req.body

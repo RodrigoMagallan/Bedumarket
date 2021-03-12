@@ -6,18 +6,18 @@
 // importamos el modelo de compra
 const Compra = require('../models/Compra')
 
-function guardarCompra(req, res) {
+function guardarCompra(req, res, next) {
   const prch = Compra.build(req.body)
 // Guarda esta instancia, es hasta este momento que se modifica la base de datos.
-prch.save().then(purchase => {
-  return res.status(201).json(purchase.toAuthJSON())
+prch.save().then(user => {
+  return res.status(201).json(user.toAuthJSON())
 }).catch(next);
 }
 
 function obtenerCompra(req, res) {
  // Hace una consulta en la base de datos.
- Purchase.findAll().then(purchase => {
-  return res.json(purchase)
+ Compra.findAll().then(users => {
+  return res.json(users)
 }).catch(error => {
   return res.sendStatus(401)
 })

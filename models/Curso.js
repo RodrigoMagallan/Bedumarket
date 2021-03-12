@@ -20,7 +20,7 @@ const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = new Sequelize('mysql::memory:');
 
 //creamos el modelo para curso
-const Usuario = sequelize.define('Curso', {
+const Curso = sequelize.define('Curso', {
   id: {
     // se indica el tipo de dato de la columna.
     type: DataTypes.INTEGER,

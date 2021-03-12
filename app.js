@@ -13,8 +13,8 @@ app.use(bodyParser.json());
 
 const Sequelize = require('sequelize')
 
-const sequelize = new Sequelize('BeduMarketdb', 'root', '123', {
-  host: 'localhost:3306',
+const sequelize = new Sequelize(process.env.MYSQL_ADDON_DB, 'uxt30auzcan5pgiw', 'ZJqqFcZWz2bAblDZdh9j', {
+  host: 'bmaezzmr9ztggwkmkfg1-mysql.services.clever-cloud.com',
   // una de estas opciones dependiendo el gestor de la base
   dialect: 'mysql',
 })

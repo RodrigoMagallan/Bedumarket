@@ -13,6 +13,4 @@ router.get('/', obtenerCurso)
 router.post('/', guardarCurso)
 router.put('/:id',modificarCurso)
 router.delete('/:id',eliminarCurso)   
-router.delete('/:id', suspenderCurso)
-
 module.exports = router;

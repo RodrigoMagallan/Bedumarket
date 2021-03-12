@@ -22,7 +22,7 @@ const Usuario = require('../models/Usuario');
 const Curso = require('../models/Curso');
 
 //creamos el modelo para compra
-const Usuario = sequelize.define('Compra', {
+const Compra = sequelize.define('Compra', {
   id: {
     // se indica el tipo de dato de la columna.
     type: DataTypes.INTEGER,
@@ -34,8 +34,8 @@ const Usuario = sequelize.define('Compra', {
     // indicamos que el campo no admite valores null
     allowNull: false
   },
-  nombre: {
-    fecha: DataTypes.DATE,
+  fecha: {
+    type: DataTypes.DATE,
     // indicamos que el campo no admite valores null
     allowNull: false
   },
@@ -47,8 +47,8 @@ const Usuario = sequelize.define('Compra', {
   // le decimos a que tabla de nuestra base de datos corresponde.
 },{ tableName: 'Compra'});
 
-Mascota.hasOne(Usuario,{foreignKey: 'id'});
-Mascota.hasOne(Curso,{foreignKey: 'id'});
+Compra.hasOne(Usuario,{foreignKey: 'id'});
+Compra.hasOne(Curso,{foreignKey: 'id'});
 
 // exportamos el modelo.
 module.exports = Compra;
