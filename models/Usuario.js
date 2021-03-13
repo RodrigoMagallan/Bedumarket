@@ -5,18 +5,19 @@ const Usuario = sequelize.define('Usuario', {
   id: {
     // se indica el tipo de dato de la columna.
     type: Sequelize.INTEGER,
+    allowNull: false
     // indicamos que este campo es llave primaria
     primaryKey : true
   },
   usuario: {
     type: Sequelize.STRING,
     // indicamos que el campo no admite valores null
-    allowNull: true
+    allowNull: false
   },
    nombre: {
     type: Sequelize.STRING,
     // indicamos que el campo no admite valores null
-    allowNull: true
+    allowNull: false
   },
   email: {
     type: Sequelize.STRING,
@@ -26,12 +27,12 @@ const Usuario = sequelize.define('Usuario', {
   contraseña: {
     type: Sequelize.STRING,
     // indicamos que el campo no admite valores null
-    allowNull: true
+    allowNull: false
   },
   forma_de_pago: {
     type: Sequelize.STRING,
     // indicamos que el campo no admite valores null
-    allowNull: true
+    allowNull: false
   }
   },{
    timestamps: false,});
