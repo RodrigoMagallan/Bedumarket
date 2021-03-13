@@ -1,5 +1,6 @@
 module.exports = (sequelize, Sequelize) =>{
 //creamos el modelo para usuario
+
 const Usuario = sequelize.define('Usuario', {
   id: {
     // se indica el tipo de dato de la columna.
@@ -32,7 +33,8 @@ const Usuario = sequelize.define('Usuario', {
     // indicamos que el campo no admite valores null
     allowNull: false
   }
-  });
+  },{
+   timestamps: false,});
   return Usuario;
 };
 
