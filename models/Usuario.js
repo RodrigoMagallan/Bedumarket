@@ -5,7 +5,7 @@ const Usuario = sequelize.define('Usuario', {
   id: {
     // se indica el tipo de dato de la columna.
     type: Sequelize.INTEGER,
-    allowNull: false
+    allowNull: false,
     // indicamos que este campo es llave primaria
     primaryKey : true
   },
