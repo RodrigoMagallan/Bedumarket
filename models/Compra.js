@@ -1,6 +1,5 @@
 // Compra.js
 module.exports = (sequelize, Sequelize) => {
-
   const Compra = sequelize.define('Compra',{
     id: {
       // se indica el tipo de dato de la columna.
@@ -12,6 +11,7 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING,
       // indicamos que el campo no admite valores null
       allowNull: false
+  
     },
     id_curso: {
       type: Sequelize.STRING,
@@ -37,7 +37,8 @@ module.exports = (sequelize, Sequelize) => {
     timestamps: false,});
     return Compra;
 }
-Compra.hasMany(Usuario,{foreignKey: 'id'});
-Compra.hasMany(Curso,{foreignKey: 'id'});
+
+          
+
 
 

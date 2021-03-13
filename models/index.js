@@ -21,5 +21,17 @@ db.sequelize = sequelize;
 
 db.usuario = require("./Usuario.js")(sequelize, Sequelize);
 db.curso = require("./Curso.js")(sequelize, Sequelize);
+db.compra = require("./Compra.js")(sequelize, Sequelize);
+
+db.compra.belongsToMany(db.usuario, {
+  through: "usuario_compra",
+  as: "usaurios",
+  foreignKey: "id_usuario",
+});
+db.compra.belongsToMany(db.curso, {
+  through: "curso_compra",
+  as: "cursos",
+  foreignKey: "id_curso",
+});
 
 module.exports = db;

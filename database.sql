@@ -9,7 +9,7 @@ CREATE TABLE Usuario(
 	contraseña VARCHAR(30) NOT NULL,
 	forma_de_pago VARCHAR(10) NOT NULL);
 
-CREATE TABLE Curso(
+CREATE TABLE Cursos(
 	id INT NOT NULL PRIMARY KEY,
 	nombre VARCHAR(50) NOT NULL,
 	url VARCHAR(80) NOT NULL,

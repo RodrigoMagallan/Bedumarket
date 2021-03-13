@@ -1,6 +1,6 @@
 const db = require ("../models");
 const Compra = db.compra;
-const op = db.Sequelize.Op;
+const Op = db.Sequelize.Op;
 
 //Generar una compra
 exports.create = (req, res) => {
@@ -16,7 +16,7 @@ exports.create = (req, res) => {
   };
 
   // Save compra in the database
-  Usuario.create(compra)
+  Compra.create(compra)
     .then(data => {
       res.send(data);
     })
@@ -30,7 +30,7 @@ exports.create = (req, res) => {
 
 //Mostrar todas las compras realiadas
 exports.findAll = (req, res) => {
-  Usuario.findAll({ where:{id:{[Op.gt]: 0 }}})
+  Compra.findAll({ where:{id:{[Op.gt]: 0 }}})
     .then(data => {
       res.send(data);
     })
@@ -46,7 +46,7 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Usuario.findByPk(id)
+  Compra.findByPk(id)
     .then(data => {
       res.send(data);
     })
