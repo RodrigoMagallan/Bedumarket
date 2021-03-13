@@ -12,15 +12,24 @@ exports.create = (req, res) => {
     return;
   }
 
-  // Save Tutorial in the database
-  Usuario.create()
+  // Create a Usuario
+  const usuario = {
+    usuario: req.body.usuario,
+    nombre: req.body.nombre,
+    email: req.body.email,
+    contraseña: req.body.contraseña,
+    forma_de_pago: req.body.forma_de_pago
+  };
+
+  // Save Usuario in the database
+  Usuario.create(usuario)
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the Tutorial."
+          err.message || "Some error occurred while creating the Usuario."
       });
     });
 };
