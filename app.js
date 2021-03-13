@@ -18,10 +18,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const db = require("./models")
 
-db.sequelize.sync();
-// simple route
+// simple routes
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "Bienvenido a API BeduMarket." });
 });
 
 require("./routes/usuario")(app);
