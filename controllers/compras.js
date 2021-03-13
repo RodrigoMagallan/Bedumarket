@@ -1,33 +1,59 @@
-/*  Archivo controllers/compra.js
- *  Simulando la respuesta de objetos Compra
- *  en un futuro aquÃ­ se utilizarÃ¡n los modelos
- */
+const db = require ("../models");
+const Compra = db.compra;
+const op = db.Sequelize.Op;
 
-// importamos el modelo de compra
-const Compra = require('../models/Compra')
+//Generar una compra
+exports.create = (req, res) => {
+  // Validate request
+  // Create a Compra
+  const compra = {
+    id: req.body.id,
+    id_usuario: req.body.id_usuario,
+    id_curso: req.body.id_curso,
+    nombre_curso: req.body.nombre_curso,
+    fecha: req.body.fecha,
+    monto: req.body.monto
+  };
 
-function guardarCompra(req, res, next) {
-  const prch = Compra.build(req.body)
-// Guarda esta instancia, es hasta este momento que se modifica la base de datos.
-prch.save().then(user => {
-  return res.status(201).json(user.toAuthJSON())
-}).catch(next);
-}
+  // Save compra in the database
+  Usuario.create(compra)
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while realizing the Compra."
+      });
+    });
+};
 
-function obtenerCompra(req, res) {
- // Hace una consulta en la base de datos.
- Compra.findAll().then(users => {
-  return res.json(users)
-}).catch(error => {
-  return res.sendStatus(401)
-})
+//Mostrar todas las compras realiadas
+exports.findAll = (req, res) => {
+  Usuario.findAll({ where:{id:{[Op.gt]: 0 }}})
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving compras."
+      });
+    });
+};
 
+//Encontrar una compra por id
+exports.findOne = (req, res) => {
+  const id = req.params.id;
 
-}
+  Usuario.findByPk(id)
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error retrieving compra with id=" + id
+      });
+    });
+};
 
-// exportamos las funciones definidas
-module.exports = {
-  guardarCompra,
-  obtenerCompra
-
-}
