@@ -7,6 +7,7 @@ exports.create = (req, res) => {
   // Validate request
   // Create a Usuario
   const usuario = {
+    id: req.body.id,
     usuario: req.body.usuario,
     nombre: req.body.nombre,
     email: req.body.email,

@@ -6,7 +6,6 @@ const Usuario = sequelize.define('Usuario', {
     // se indica el tipo de dato de la columna.
     type: Sequelize.INTEGER,
     // indicamos que este campo es llave primaria
-    autoIncrement: true,
     primaryKey : true
   },
   usuario: {
