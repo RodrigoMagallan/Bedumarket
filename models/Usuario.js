@@ -10,28 +10,18 @@ const Usuario = sequelize.define('Usuario', {
   },
   usuario: {
     type: Sequelize.STRING,
-    // indicamos que el campo no admite valores null
-    allowNull: false
   },
    nombre: {
     type: Sequelize.STRING,
-    // indicamos que el campo no admite valores null
-    allowNull: false
   },
   email: {
     type: Sequelize.STRING,
-    // indicamos que el campo no admite valores null
-    allowNull: false
   },
   contraseña: {
     type: Sequelize.STRING,
-    // indicamos que el campo no admite valores null
-    allowNull: false
   },
   forma_de_pago: {
     type: Sequelize.STRING,
-    // indicamos que el campo no admite valores null
-    allowNull: false
   }
   },{
    timestamps: false,});
