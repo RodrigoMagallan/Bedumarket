@@ -5,13 +5,6 @@ const Op = db.Sequelize.Op;
   // Create a Usuario
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.id) {
-    res.status(400).send({
-      message: "Content can not be empty!"
-    });
-    return;
-  }
-
   // Create a Usuario
   const usuario = {
     usuario: req.body.usuario,
