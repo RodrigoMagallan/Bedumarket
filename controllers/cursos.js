@@ -14,7 +14,7 @@ exports.create = (req, res) => {
     descripcion: req.body.descripcion
   };
 
-  //Guardar usuario en la base de datos
+  //Guardar curso en la base de datos
   Curso.create(curso).then(data => {
     res.send(data);
   }).catch(err => {
@@ -39,7 +39,7 @@ exports.findAll = (req, res) => {
       });
 };
 
-//Encontrar un usuario por ID
+//Encontrar un curso por ID
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
@@ -54,7 +54,7 @@ exports.findOne = (req, res) => {
     });
 };
 
-//Actualizar un usuario por Id
+//Actualizar un curso por Id
 exports.update = (req, res) => {
   const id = req.params.id;
 
@@ -79,7 +79,7 @@ exports.update = (req, res) => {
     });
 };
 
-//Borrar usuario
+//Borrar curso
 exports.delete = (req, res) => {
   const id = req.params.id;
 

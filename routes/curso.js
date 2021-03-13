@@ -1,16 +1,22 @@
-//Estructura CRUD
+module.exports = app => {
+  const curso = require("../controllers/cursos.js");
 
-const router = require('express').Router();
-const {
-  guardarCurso,
-  obtenerCurso,
-  modificarCurso,
-  eliminarCurso,
-  suspenderCurso
-} = require('../controllers/cursos')
+  var router = require("express").Router();
 
-router.get('/', obtenerCurso)
-router.post('/', guardarCurso)
-router.put('/:id',modificarCurso)
-router.delete('/:id',eliminarCurso)   
-module.exports = router;
+  // Create a new usuario
+  router.post("/", curso.create);
+
+  // Retrieve all usuario
+  router.get("/", curso.findAll);
+
+  // Retrieve a single usuario with id
+  router.get("/:id", curso.findOne);
+
+  // Update a usuario with id
+  router.put("/:id", curso.update);
+
+  // Delete a usuario with id
+  router.delete("/:id", curso.delete);
+
+  app.use('/api/curso', router);
+};
