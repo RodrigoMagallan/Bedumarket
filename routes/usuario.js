@@ -1,15 +1,22 @@
-// Estructura del CRUD
-const router = require('express').Router();
-const {
-    guardarUsuario,
-    obtenerUsuarios,
-    modificarUsuario,
-    suspenderUsuario
-} = require('../controllers/usuarios')
+module.exports = app => {
+  const usuario = require("../controllers/usuario.js");
 
-router.get('/', obtenerUsuarios)
-router.post('/', guardarUsuario)
-router.put('/:id', modificarUsuario)
-router.delete('/:id', suspenderUsuario)
+  var router = require("express").Router();
 
-module.exports = router;
+  // Create a new usuario
+  router.post("/", usuario.create);
+
+  // Retrieve all usuario
+  router.get("/", usuario.findAll);
+
+  // Retrieve a single usuario with id
+  router.get("/:id", usuario.findOne);
+
+  // Update a usuario with id
+  router.put("/:id", usuario.update);
+
+  // Delete a usuario with id
+  router.delete("/:id", usuario.delete);
+
+  app.use('/api/usuario', router);
+};

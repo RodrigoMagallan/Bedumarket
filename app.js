@@ -1,41 +1,32 @@
-// Importamos las bibliotecas necesarias
-var express = require('express'),
-    bodyParser = require('body-parser'),
-    cors = require('cors');
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 
-// Objeto global de la app
-var app = express();
+const app = express();
 
-// configuraciÃ³n de middlewares
-app.use(cors());
-app.use(bodyParser.urlencoded({ extended: false }));
+var corsOptions = {
+  origin: "http://localhost:8081"
+};
+
+app.use(cors(corsOptions));
+
+// parse requests of content-type - application/json
 app.use(bodyParser.json());
 
-const Sequelize = require('sequelize')
+// parse requests of content-type - application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
 
-const sequelize = new Sequelize(process.env.MYSQL_ADDON_DB, 'uxt30auzcan5pgiw', 'ZJqqFcZWz2bAblDZdh9j', {
-  host: 'bmaezzmr9ztggwkmkfg1-mysql.services.clever-cloud.com',
-  // una de estas opciones dependiendo el gestor de la base
-  dialect: 'mysql',
-})
+const db = require("./models")
 
-sequelize.authenticate()
-.then(() => {
-  console.log('Its alive!!!!');
-})
-.catch(err => {
-  console.log('No se conecto :(')
-})
-app.use('/v1', require('./routes'));
-
-// Manejando los errores 404
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+db.sequelize.sync();
+// simple route
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to bezkoder application." });
 });
 
-// Iniciando el servidor...
-var server = app.listen(process.env.PORT || 3000, function(){
-  console.log('Escuchando en el puerto ' + server.address().port);
+require("./routes/usuario")(app);
+// set port, listen for requests
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`);
 });
