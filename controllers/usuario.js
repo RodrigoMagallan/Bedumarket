@@ -36,7 +36,7 @@ exports.findAll = (req, res) => {
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving Usuario."
+          err.message || "Some error occurred while retrieving tutorials."
       });
     });
 };
@@ -91,17 +91,17 @@ exports.delete = (req, res) => {
     .then(num => {
       if (num == 1) {
         res.send({
-          message: "Usuario was deleted successfully!"
+          message: "Tutorial was deleted successfully!"
         });
       } else {
         res.send({
-          message: `Cannot delete Usuario with id=${id}. Maybe Usuario was not found!`
+          message: `Cannot delete Tutorial with id=${id}. Maybe Tutorial was not found!`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Could not delete Usuario with id=" + id
+        message: "Could not delete Tutorial with id=" + id
       });
     });
 };
