@@ -1,4 +1,4 @@
-/node_modules
+node_modules
 config/env.sh
 database.sql
 Inserciones y consultas.sql
