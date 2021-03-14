@@ -68,7 +68,7 @@ exports.update = (req, res) => {
         });
       } else {
         res.send({
-          message: `Cannot update Curso with id=${id}. Maybe Usuario was not found or req.body is empty!`
+          message: `Cannot update Curso with id=${id}. Maybe Curso was not found or req.body is empty!`
         });
       }
     })
@@ -89,11 +89,11 @@ exports.delete = (req, res) => {
     .then(num => {
       if (num == 1) {
         res.send({
-          message: "Tutorial was deleted successfully!"
+          message: "Curso was deleted successfully!"
         });
       } else {
         res.send({
-          message: `Cannot delete Curso with id=${id}. Maybe Tutorial was not found!`
+          message: `Cannot delete Curso with id=${id}. Maybe Curso was not found!`
         });
       }
     })
