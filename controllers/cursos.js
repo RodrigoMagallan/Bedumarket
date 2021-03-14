@@ -89,11 +89,11 @@ exports.delete = (req, res) => {
     .then(num => {
       if (num == 1) {
         res.send({
-          message: "Tutorial was deleted successfully!"
+          message: "Curso was deleted successfully!"
         });
       } else {
         res.send({
-          message: `Cannot delete Curso with id=${id}. Maybe Tutorial was not found!`
+          message: `Cannot delete Curso with id=${id}. Maybe Curso was not found!`
         });
       }
     })
