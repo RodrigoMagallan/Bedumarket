@@ -54,5 +54,9 @@ Para poder instalar esta API es necesario que ejecutes `npm install` ya sea en w
 
 Se realizó el deploy de la API por medio de www.heroku.com y para poder hacer la conexión remota a nuestra Base de datos de MySQL se uso Clever Cloud. 
 
+Swagger: https://app.swaggerhub.com/apis-docs/GaraaxD/BeduMarket/1.0.0
+
+API: https://bedu-market.herokuapp.com/
+
 ---
 ⌨️ con ❤️ por [Rodrigo Magallan y Janz Fernando] 😊
